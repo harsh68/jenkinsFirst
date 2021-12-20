@@ -10,10 +10,10 @@ pipeline {
                {
                    echo 'Build stage'
                       withCredentials([
-                                       usernamePassword(credentialsId: 'Harsh-Git', passwordVariable: PWD, usernameVariable: USER)
+                                       usernamePassword(credentialsId: 'Harsh-Git', usernameVariable: USER, passwordVariable: PWD)
                                       ])
                                   {
-                                      sh "Usename is ${USER}"
+                                      echo 'Hello'
                                   }
                } 
         }
