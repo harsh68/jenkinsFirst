@@ -13,7 +13,7 @@ pipeline {
                                        usernamePassword(credentialsId: 'Harsh-Git', passwordVariable: 'PASSWORD_VAR', usernameVariable: 'USER_VAR')
                                       ])
                                   {
-                                      echo 'Usename is ${USER_VAR}'
+                                      sh "Usename is ${USER_VAR}"
                                   }
                } 
         }
