@@ -6,17 +6,7 @@ pipeline {
     } 
     stages {
         stage('Build') { 
-            steps
-               {
-                   echo 'Build stage'
-                      withCredentials([
-                                       usernamePassword(credentialsId: 'Harsh-Git', usernameVariable: USER, passwordVariable: PWD)
-                                      ])
-                                  {
-                                      echo 'Hello'
-                                  }
-               } 
-        }
+            steps { echo 'Build stage'}}
         
         stage('Deploy') {  
             when{
