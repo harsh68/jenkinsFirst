@@ -14,7 +14,7 @@ pipeline {
                       BRANCH_NAME == 'Dev'
                    }
                 }
-              steps {   echo 'Deploy stage' } echo 'Environmental Own Variable  ${SERVER_CREDENTIAL}' } //Execute when Branch name "Dev" Execute
+              steps {   echo 'Deploy stage'  echo 'Environmental Own Variable  ${SERVER_CREDENTIAL}' }  } //Execute when Branch name "Dev" Execute
         
         stage('Test') {  steps {   echo 'Test stage' }  }
     }
