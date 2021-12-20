@@ -1,6 +1,9 @@
 pipeline {
     agent any
-    
+   environment { 
+               
+               SERVER_CREDENTIAL = credentials('Harsh-Git')
+    } 
     stages {
         stage('Build') {  steps {   echo 'Build stage' }  }
         
