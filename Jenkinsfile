@@ -1,9 +1,6 @@
 pipeline {
     agent any
-    environment { 
-               // AOEU = "${sh(returnStdout: true, script: 'echo aoeu').trim()}"
-               SERVER_CREDENTIAL = credentials('ID REFERENCE OF JENKINS CREDENTAIL')
-    }   
+    
     stages {
         stage('Build') {  steps {   echo 'Build stage' }  }
         
