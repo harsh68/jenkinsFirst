@@ -7,7 +7,7 @@ pipeline {
             when{
                   expression
                    {
-                      BRANCH_NAME == 'Dev'
+                      BRANCH_NAME != 'Dev'
                    }
                 }
               steps {   echo 'Deploy stage' }  }
