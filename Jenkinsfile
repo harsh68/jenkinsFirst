@@ -10,7 +10,7 @@ pipeline {
                       BRANCH_NAME == 'Dev'
                    }
                 }
-              steps {   echo 'Deploy stage' }  }
+              steps {   echo 'Deploy stage' }  } //Execute when Branch name "Dev" Execute
         
         stage('Test') {  steps {   echo 'Test stage' }  }
     }
