@@ -5,7 +5,18 @@ pipeline {
                SERVER_CREDENTIAL = credentials('Harsh-Git')
     } 
     stages {
-        stage('Build') {  steps {   echo 'Build stage' }  }
+        stage('Build') { 
+            steps
+               {
+                   echo 'Build stage'
+                      withCredentials([
+                                       usernamePassword(credentialsId: 'Harsh-Git', passwordVariable: 'PASSWORD_VAR', usernameVariable: 'USER_VAR')
+                                      ])
+                                  {
+                                      echo 'Usename is ${USER_VAR}'
+                                  }
+               } 
+        }
         
         stage('Deploy') {  
             when{
