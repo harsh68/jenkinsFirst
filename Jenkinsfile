@@ -5,11 +5,4 @@ pipeline {
         stage('Deploy') {  steps {   echo 'Deploy stage' }  }
         stage('Test') {  steps {   echo 'Test stage' }  }
     }
-
-    post { 
-        always {  //always execute script  }
-        success{  //always execute script  }
-        failure{  //always execute script  }
-    }
-    }
 }
