@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    environment { 
+                AOEU = "${sh(returnStdout: true, script: 'echo aoeu').trim()}"
+               SERVER_CREDENTIAL = credentials('ID REFERENCE OF JENKINS CREDENTAIL')
+    }   
     stages {
         stage('Build') {  steps {   echo 'Build stage' }  }
         
@@ -10,7 +14,7 @@ pipeline {
                       BRANCH_NAME == 'Dev'
                    }
                 }
-              steps {   echo 'Deploy stage' }  } //Execute when Branch name "Dev" Execute
+              steps {   echo 'Deploy stage' } echo 'Environmental Own Variable  ${SERVER_CREDENTIAL}' } //Execute when Branch name "Dev" Execute
         
         stage('Test') {  steps {   echo 'Test stage' }  }
     }
