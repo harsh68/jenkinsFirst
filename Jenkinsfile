@@ -11,27 +11,21 @@ pipeline {
         password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
     }
     stages {
-        stage('init')
-        {
-            script
-            {
-                gv = load "script.groovy"
-            }
+        stage('init') {
+            script { gv = load "script.groovy" }
         }
-        stage('Build') { steps { echo 'Build stage'}}
+       
+        stage('Build') { 
+           script { gv.buildApp() }
+        }
+        
         stage('Deploy') {  
-            when{ expression { BRANCH_NAME == 'Dev'}}
-            steps { echo "Environmental Own Variable  ${SERVER_CREDENTIAL_VAR}" }  } //Execute when Branch name "Dev" Execute
+            when{ expression { BRANCH_NAME == 'Dev'}} //Execute when Branch name "Dev" Execute
+            script { gv.deployApp()}
+        } 
         stage('Test') {
-            when{
-                expression
-                {
-                    params.isIt_var
-                }
-            }
-            steps {   echo 'Test stage'
-                   echo "Deploying version ${params.VERSION}"
-                  } 
+            when { expression { params.isIt_var } }
+            script { gv.testApp() } 
         }
     }
     
