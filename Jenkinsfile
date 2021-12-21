@@ -12,20 +12,20 @@ pipeline {
     }
     stages {
         stage('init') {
-            script { gv = load "script.groovy" }
+            steps{ script { gv = load "script.groovy" }}
         }
        
         stage('Build') { 
-           script { gv.buildApp() }
+            steps{script { gv.buildApp() }}
         }
         
         stage('Deploy') {  
             when{ expression { BRANCH_NAME == 'Dev'}} //Execute when Branch name "Dev" Execute
-            script { gv.deployApp()}
+            steps{ script { gv.deployApp()}}
         } 
         stage('Test') {
             when { expression { params.isIt_var } }
-            script { gv.testApp() } 
+            steps{script { gv.testApp() } }
         }
     }
     
