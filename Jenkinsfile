@@ -1,3 +1,5 @@
+def gv //gloabal variable available to all stages
+
 pipeline {
     agent any
      environment {  SERVER_CREDENTIAL_VAR = credentials('Harsh-Git') } 
@@ -9,6 +11,13 @@ pipeline {
         password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
     }
     stages {
+        stage('init')
+        {
+            script
+            {
+                gv = load "script.groovy"
+            }
+        }
         stage('Build') { steps { echo 'Build stage'}}
         stage('Deploy') {  
             when{ expression { BRANCH_NAME == 'Dev'}}
