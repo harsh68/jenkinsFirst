@@ -5,11 +5,11 @@ def deployApp()
 
 def buildAppOne()
 {
-  echo 'Build stage'
+  echo 'Build-One stage'
 }
 def buildAppTwo()
 {
-  echo 'Build stage'
+  echo 'Build-Two stage'
 }
 
 def testApp()
