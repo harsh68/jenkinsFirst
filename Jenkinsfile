@@ -17,8 +17,8 @@ pipeline {
        
         stage('Build') { 
             parallel{
-                stage('Build-one'){ steps{script { gv.buildApp() }} }
-                stage('Build-Two'){ steps{script { gv.buildApp() }} }
+                stage('Build-one'){ steps{script { gv.buildAppOne() }} }
+                stage('Build-Two'){ steps{script { gv.buildAppTwo() }} }
             }
             
         }
